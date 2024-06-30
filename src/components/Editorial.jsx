@@ -45,13 +45,13 @@ const Editorial = () => {
               <a className="active" href="#description" onClick={() => handleNavigation('/')}>
                 Description
               </a>
-              <a href="#editorial" onClick={() => handleNavigation('/editorial')}>Editorial</a>
-              <a href="#solution">Solution</a>
+              <a className="active"  onClick={() => handleNavigation('/editorial')}>Editorial</a>
+              <a className="active"   onClick={() => handleNavigation('/solution')}>Solution</a>
             
-              <a href="#submit">Submit</a>
+              <a  className="active"  onClick={() => handleNavigation('/submission')}>Submit</a>
             </div>
             <div className="leftContainerDown">
-              <h1>Solution Article</h1>
+              <h1>Editorial Article</h1>
              
               <h1>Algorithm</h1>
               <p>

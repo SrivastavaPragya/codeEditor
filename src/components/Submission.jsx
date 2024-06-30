@@ -6,74 +6,77 @@ import "codemirror/theme/monokai.css";
 import "codemirror/mode/javascript/javascript";
 import { useNavigate } from "react-router-dom";
 
-const Discription = () => {
-  const textAreaRef = useRef(null);
-  const navigate = useNavigate();
+const Submission = () => {
+    const textAreaRef = useRef(null);
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    let cmInstance;
-    if (textAreaRef.current) {
-      cmInstance = CodeMirror.fromTextArea(textAreaRef.current, {
-        mode: "javascript",
-        theme: "monokai",
-        lineNumbers: true,
-      });
-    }
-    return () => {
-      if (cmInstance) {
-        cmInstance.toTextArea();
-      }
-    };
-  }, []);
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
-
+    useEffect(() => {
+        let cmInstance;
+        if (textAreaRef.current) {
+          cmInstance = CodeMirror.fromTextArea(textAreaRef.current, {
+            mode: "javascript",
+            theme: "monokai",
+            lineNumbers: true,
+          });
+        }
+        return () => {
+          if (cmInstance) {
+            cmInstance.toTextArea();
+          }
+        };
+      }, []);
+    
+      const handleNavigation = (path) => {
+        navigate(path);
+      };
   return (
-    <div className="container">
+    <>
+     <div className="container">
       <div className="leftContainer">
         <div className="leftContainerUpper">
           <a className="active"  onClick={() => handleNavigation('/')}>
             Description
           </a>
           <a className="active"  onClick={() => handleNavigation('/editorial')}>Editorial</a>
-          <a  className="active"  onClick={() => handleNavigation('/solution')}>Solution</a>
+          <a className="active"   onClick={() => handleNavigation('/solution')}>Solution</a>
         
-          <a  className="active"  onClick={() => handleNavigation('/submission')} >Submit</a>
+          <a className="active"  onClick={() => handleNavigation('/submission')} >Submit</a>
         </div>
         <div className="leftContainerDown">
-          <h1>1. Two Sum</h1>
-          <p>
-            Given an array of integers nums and an integer target, return
-            indices of the two numbers such that they add up to target.
-          </p>
-          <p>
-            You may assume that each input would have exactly one solution, and
-            you may not use the same element twice.
-          </p>
-          <p>You can return the answer in any order.</p>
-          <h4>Example 1:</h4>
+          <h1>Submissions</h1>
+         
+          <h4>Submission:1</h4>
           <div className="div1">
-            <p>Input: nums = [2,7,11,15], target = 9</p>
-            <p>Output: [0,1]</p>
-            <p>Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]</p>
+            <p>class Solution:
+                <br />
+    def twoSum(self, nums: List[int], target: int)  List[int]:
+    <br />
+        hashmap = {}
+       
+        for i in range(len(nums)):
+       
+            hashmap[nums[i]] = i
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            <br />
+            if complement in hashmap and hashmap[complement] != i:
+                return [i, hashmap[complement]] </p>
           </div>
-          <h4>Example 2:</h4>
+          <h4>Submission:2</h4>
           <div className="div1">
-            <p>Input: nums = [2,7,11,15], target = 9</p>
-            <p>Output: [0,1]</p>
-            <p>Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]</p>
+            <p>class Solution:
+                <br />
+    def twoSum(self, nums: List[int], target: int)  List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] = i</p>
           </div>
-          <h4>Example 3:</h4>
-          <div className="div1">
-            <p>Input: nums = [2,7,11,15], target = 9</p>
-            <p>Output: [0,1]</p>
-            <p>
-              Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]=
-              [2,7,11,15], target = 9= [2,7,11,15], target = 9.
-            </p>
-          </div>
+         
+        
           <div className="constraints">
             <h3>Constraints:</h3>
             <p>
@@ -122,7 +125,10 @@ const Discription = () => {
         </div>
       </div>
     </div>
-  );
-};
+    
+    
+    </>
+  )
+}
 
-export default Discription;
+export default Submission
